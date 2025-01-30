@@ -49,40 +49,6 @@
         overflow: hidden;
       }
 
-      /* Animated background particles */
-      .particle-container {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-
-      .particle {
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        animation: float 15s infinite linear;
-      }
-
-      .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-      .particle:nth-child(2) { left: 30%; animation-delay: -2s; }
-      .particle:nth-child(3) { left: 50%; animation-delay: -4s; }
-      .particle:nth-child(4) { left: 70%; animation-delay: -6s; }
-      .particle:nth-child(5) { left: 90%; animation-delay: -8s; }
-      .particle:nth-child(6) { left: 20%; animation-delay: -10s; }
-
-      @keyframes float {
-        0% {
-          transform: translateY(-100%) rotate(0deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(1000%) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
       /* Hero content styling */
       .hero-content {
         position: relative;
@@ -305,10 +271,37 @@
 
       /* Custom styles for the skills section */
 
-      .skills-section {
-      background-color: #ffffff;
-      padding: 4rem 0;
+      .skill-category {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.1);
       }
+
+      .skill-category:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+      }
+
+      .skill-item {
+        position: relative;
+        padding-left: 0;
+      }
+
+      .badge {
+        font-weight: 500;
+        padding: 0.5em 1em;
+      }
+
+      .skill-items small {
+        font-size: 0.85rem;
+      }
+
+      /* Custom background colors for badges */
+      .bg-primary-subtle { background-color: rgba(13, 110, 253, 0.1); }
+      .bg-success-subtle { background-color: rgba(25, 135, 84, 0.1); }
+      .bg-info-subtle { background-color: rgba(13, 202, 240, 0.1); }
+      .bg-warning-subtle { background-color: rgba(255, 193, 7, 0.1); }
+      .bg-danger-subtle { background-color: rgba(220, 53, 69, 0.1); }
+      .bg-secondary-subtle { background-color: rgba(108, 117, 125, 0.1); }
     
       .progress-wrapper {
         margin-bottom: 2rem;
@@ -430,13 +423,14 @@
 
       /* Enhanced navigation transition */
       .navbar {
-        transition: all 0.5s ease;
+        transition: all 0.5s ease, box-shadow 0.5s ease;
+        background: rgba(0, 0, 0, 0.2);
       }
 
       .navbar.scrolled {
-        background: rgba(33, 37, 41, 0.98) !important;
+        background: rgba(33, 37, 41, 0.75) !important;
         backdrop-filter: blur(10px);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
       }
 
       /* Smooth hover transitions for cards */
@@ -745,15 +739,6 @@
     </nav>
 
     <header class="hero">
-      <div class="particle-container">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-      </div>
-      
       <div class="container">
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
           <h1 class="display-3">Jordan Martin</h1>
@@ -826,52 +811,173 @@
     </section>
 
     <section class="skills-section" id="skills">
-      <div class="container">
-          <h2 class="text-center mb-5">Technical Skills</h2>
-          <div class="row">
-              <div class="col-md-6">
-                  <div class="progress-wrapper">
-                      <div class="progress-label">
-                          <span>Python</span>
-                          <span>90%</span>
-                      </div>
-                      <div class="progress">
-                          <div class="progress-bar" data-width="90%"></div>
-                      </div>
-                  </div>
-                  <div class="progress-wrapper">
-                      <div class="progress-label">
-                          <span>Java</span>
-                          <span>85%</span>
-                      </div>
-                      <div class="progress">
-                          <div class="progress-bar" data-width="85%"></div>
-                      </div>
-                  </div>
+      <div class="container py-5">
+        <h2 class="text-center mb-5">Technical Skills</h2>
+        
+        <div class="row g-4">
+          <!-- Programming Languages -->
+          <div class="col-md-6 col-lg-4">
+            <div class="skill-category bg-white p-4 rounded-lg shadow-sm h-100">
+              <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-code text-primary fs-2 me-3"></i>
+                <h3 class="h5 mb-0">Programming Languages</h3>
               </div>
-              <div class="col-md-6">
-                  <div class="progress-wrapper">
-                      <div class="progress-label">
-                          <span>JavaScript</span>
-                          <span>80%</span>
-                      </div>
-                      <div class="progress">
-                          <div class="progress-bar" data-width="80%"></div>
-                      </div>
-                  </div>
-                  <div class="progress-wrapper">
-                      <div class="progress-label">
-                          <span>HTML/CSS</span>
-                          <span>85%</span>
-                      </div>
-                      <div class="progress">
-                          <div class="progress-bar" data-width="85%"></div>
-                      </div>
-                  </div>
+              <div class="skill-items">
+                <div class="skill-item mb-3">
+                  <span class="badge bg-primary-subtle text-primary mb-2">Advanced</span>
+                  <p class="mb-1 fw-bold">Python</p>
+                  <small class="text-muted">NumPy, Pandas, scikit-learn</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-primary-subtle text-primary mb-2">Advanced</span>
+                  <p class="mb-1 fw-bold">Java</p>
+                  <small class="text-muted">Spring Boot, JavaFX, JUnit</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-primary-subtle text-primary mb-2">Intermediate</span>
+                  <p class="mb-1 fw-bold">JavaScript</p>
+                  <small class="text-muted">React, Node.js, Express</small>
+                </div>
               </div>
+            </div>
           </div>
+    
+          <!-- AI & Machine Learning -->
+          <div class="col-md-6 col-lg-4">
+            <div class="skill-category bg-white p-4 rounded-lg shadow-sm h-100">
+              <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-brain text-success fs-2 me-3"></i>
+                <h3 class="h5 mb-0">AI & Machine Learning</h3>
+              </div>
+              <div class="skill-items">
+                <div class="skill-item mb-3">
+                  <span class="badge bg-success-subtle text-success mb-2">Advanced</span>
+                  <p class="mb-1 fw-bold">Machine Learning</p>
+                  <small class="text-muted">Classification, Regression, Clustering</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-success-subtle text-success mb-2">Intermediate</span>
+                  <p class="mb-1 fw-bold">Deep Learning</p>
+                  <small class="text-muted">TensorFlow, PyTorch, Neural Networks</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-success-subtle text-success mb-2">Intermediate</span>
+                  <p class="mb-1 fw-bold">Computer Vision</p>
+                  <small class="text-muted">OpenCV, Image Processing</small>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Web Development -->
+          <div class="col-md-6 col-lg-4">
+            <div class="skill-category bg-white p-4 rounded-lg shadow-sm h-100">
+              <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-globe text-info fs-2 me-3"></i>
+                <h3 class="h5 mb-0">Web Development</h3>
+              </div>
+              <div class="skill-items">
+                <div class="skill-item mb-3">
+                  <span class="badge bg-info-subtle text-info mb-2">Advanced</span>
+                  <p class="mb-1 fw-bold">Frontend</p>
+                  <small class="text-muted">HTML5, CSS3, React.js</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-info-subtle text-info mb-2">Intermediate</span>
+                  <p class="mb-1 fw-bold">Backend</p>
+                  <small class="text-muted">Node.js, Express, RESTful APIs</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-info-subtle text-info mb-2">Intermediate</span>
+                  <p class="mb-1 fw-bold">Databases</p>
+                  <small class="text-muted">MySQL, MongoDB, PostgreSQL</small>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Tools & Technologies -->
+          <div class="col-md-6 col-lg-4">
+            <div class="skill-category bg-white p-4 rounded-lg shadow-sm h-100">
+              <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-tools text-warning fs-2 me-3"></i>
+                <h3 class="h5 mb-0">Tools & Technologies</h3>
+              </div>
+              <div class="skill-items">
+                <div class="skill-item mb-3">
+                  <span class="badge bg-warning-subtle text-warning mb-2">Advanced</span>
+                  <p class="mb-1 fw-bold">Version Control</p>
+                  <small class="text-muted">Git, GitHub, GitLab</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-warning-subtle text-warning mb-2">Intermediate</span>
+                  <p class="mb-1 fw-bold">Cloud Platforms</p>
+                  <small class="text-muted">AWS, Google Cloud, Heroku</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-warning-subtle text-warning mb-2">Advanced</span>
+                  <p class="mb-1 fw-bold">Development Tools</p>
+                  <small class="text-muted">VSCode, IntelliJ IDEA, Jupyter</small>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Soft Skills -->
+          <div class="col-md-6 col-lg-4">
+            <div class="skill-category bg-white p-4 rounded-lg shadow-sm h-100">
+              <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-users text-danger fs-2 me-3"></i>
+                <h3 class="h5 mb-0">Soft Skills</h3>
+              </div>
+              <div class="skill-items">
+                <div class="skill-item mb-3">
+                  <span class="badge bg-danger-subtle text-danger mb-2">Advanced</span>
+                  <p class="mb-1 fw-bold">Problem Solving</p>
+                  <small class="text-muted">Analytical Thinking, Debug</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-danger-subtle text-danger mb-2">Advanced</span>
+                  <p class="mb-1 fw-bold">Team Collaboration</p>
+                  <small class="text-muted">Agile, Scrum, Leadership</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-danger-subtle text-danger mb-2">Advanced</span>
+                  <p class="mb-1 fw-bold">Communication</p>
+                  <small class="text-muted">Technical Writing, Presentation</small>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Additional Skills -->
+          <div class="col-md-6 col-lg-4">
+            <div class="skill-category bg-white p-4 rounded-lg shadow-sm h-100">
+              <div class="d-flex align-items-center mb-4">
+                <i class="fas fa-plus-circle text-secondary fs-2 me-3"></i>
+                <h3 class="h5 mb-0">Additional Skills</h3>
+              </div>
+              <div class="skill-items">
+                <div class="skill-item mb-3">
+                  <span class="badge bg-secondary-subtle text-secondary mb-2">Intermediate</span>
+                  <p class="mb-1 fw-bold">Data Visualization</p>
+                  <small class="text-muted">Matplotlib, Seaborn, D3.js</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-secondary-subtle text-secondary mb-2">Intermediate</span>
+                  <p class="mb-1 fw-bold">DevOps</p>
+                  <small class="text-muted">Docker, CI/CD, Jenkins</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-secondary-subtle text-secondary mb-2">Intermediate</span>
+                  <p class="mb-1 fw-bold">Testing</p>
+                  <small class="text-muted">Unit Testing, Integration Testing</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </section>
 
   <section id="projects" class="projects py-5">
     <div class="container-fluid">
@@ -1241,19 +1347,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   type();
 
-  // Parallax effect for particles
-  document.addEventListener('mousemove', function(e) {
-    const particles = document.querySelectorAll('.particle');
-    const mouseX = e.clientX / window.innerWidth;
-    const mouseY = e.clientY / window.innerHeight;
-
-    particles.forEach(particle => {
-      const speed = parseFloat(particle.getAttribute('data-speed') || 0.02);
-      const x = (window.innerWidth - e.pageX * speed) / 100;
-      const y = (window.innerHeight - e.pageY * speed) / 100;
-      particle.style.transform = `translate(${x}px, ${y}px)`;
-    });
-  });
 
   // Hide scroll indicator when scrolling starts
   window.addEventListener('scroll', function() {
