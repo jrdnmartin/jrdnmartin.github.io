@@ -231,26 +231,199 @@
 
       /* About section */
 
-      .about {
-        background-color: #f9f9f9;
-        padding: 4rem 0;
+    /* About Section Styles */
+    .about {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Heading Styles */
+    .heading-underline {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #007bff, #6610f2);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Story Card Styles */
+    .story-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(0);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 123, 255, 0.1);
+    }
+
+    .story-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .highlight-text {
+      background: linear-gradient(90deg, #007bff, #6610f2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+
+    /* Info Cards Styles */
+    .info-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      height: 100%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(0);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 123, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #007bff, #6610f2);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .info-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      color: #007bff;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover .card-icon {
+      transform: scale(1.1);
+      color: #6610f2;
+    }
+
+    .info-card h5 {
+      color: #2d3436;
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    /* Education Card Specific Styles */
+    .education-item .institution {
+      font-weight: 600;
+      color: #2d3436;
+      margin-bottom: 0.5rem;
+    }
+
+    .education-item .major,
+    .education-item .gpa {
+      color: #636e72;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .coursework-title {
+      font-weight: 600;
+      color: #2d3436;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .coursework ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .coursework li {
+      color: #636e72;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    .coursework li::before {
+      content: '•';
+      color: #007bff;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* Skills and Interests Cards Specific Styles */
+    .card-content {
+      text-align: left;
+    }
+
+    .skill-category,
+    .interest-category {
+      margin-bottom: 1rem;
+    }
+
+    .category-title {
+      font-weight: 600;
+      color: #2d3436;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    .skill-category p:not(.category-title),
+    .interest-category p:not(.category-title) {
+      color: #636e72;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .story-card,
+      .info-card {
+        padding: 1.5rem;
       }
-      .about h2 {
-        margin-bottom: 3rem;
-      }
-      .about .card {
-        transition: transform 0.3s, box-shadow 0.3s;
-        border: none;
-      }
-      .about .card:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
-      }
-      .about-icons {
+
+      .card-icon {
         font-size: 2rem;
-        color: #6610f2;
-        margin-bottom: 1rem;
       }
+
+      .info-card h5 {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Animation Classes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
 
       /* Footer section */
 
@@ -431,6 +604,32 @@
         background: rgba(33, 37, 41, 0.75) !important;
         backdrop-filter: blur(10px);
         box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-link {
+        position: relative;
+        padding-bottom: 0.25rem !important;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background: linear-gradient(90deg, #007bff, #00bfff);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Optional: Add hover effect */
+      .nav-link:hover::after {
+        width: 70%;
       }
 
       /* Smooth hover transitions for cards */
@@ -728,6 +927,9 @@
               <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#projects">Projects</a>
             </li>
             <li class="nav-item">
@@ -745,16 +947,16 @@
           <div class="typewriter-container">
             <h2 class="fw-light">I'm a <span class="typewriter"></span></h2>
           </div>
-          <p class="lead mt-4">Crafting innovative solutions at the intersection of AI and software engineering.</p>
+          <p class="lead mt-4">AI Enthusiast | CS Student | Building the Future, One Line of Code at a Time.</p>
           <div class="highlight-box">
             <p class="elevator-pitch">
               Junior at Drake University with a passion for artificial intelligence 
-              and a track record of delivering impactful software solutions.
+              and a desire to create innovative solutions to complex problems.
             </p>
           </div>
           <div class="btn-group mt-4">
             <a href="#projects" class="btn btn-primary btn-glow">View Projects</a>
-            <a href="/myResume.pdf" target="_blank" class="btn btn-outline-light">Download Resume</a>
+            <a href="images/resume.pdf" target="_blank" class="btn btn-outline-light">View Resume</a>
           </div>
           <div class="social-icons">
             <a href="https://github.com/jrdnmartin" target="_blank" title="GitHub" class="icon-hover">
@@ -777,32 +979,99 @@
 
     <section id="about" class="about py-5">
       <div class="container">
-        <div class="row text-center">
-          <h2 class="mb-5">About Me</h2>
-          <div class="col-md-4">
-            <div class="card border-0 shadow">
-              <div class="card-body">
-                <div class="about-icons"><i class="fas fa-graduation-cap"></i></div>
-                <h5>Education</h5>
-                <p>Junior at Drake University majoring in AI and CS.</p>
+        <h2 class="text-center mb-5 position-relative">
+          About Me
+          <div class="heading-underline"></div>
+        </h2>
+        
+        <!-- Personal Story -->
+        <div class="row mb-5" data-aos="fade-up" data-aos-duration="1000">
+          <div class="col-12">
+            <div class="story-card">
+              <div class="story-content">
+                <p class="lead highlight-text">Hey there! 👋</p>
+                <p class="mb-3">
+                  As a junior at Drake University, I'm passionate about pushing the boundaries of artificial intelligence and software development. My journey began with a curiosity for technology and a desire to design fun and innovative solutions.
+                </p>
+                <p>
+                  I believe in technology's power to solve real-world problems, and I'm constantly seeking new challenges to grow both technically and personally.
+                </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card border-0 shadow">
-              <div class="card-body">
-                <div class="about-icons"><i class="fas fa-code"></i></div>
-                <h5>Skills</h5>
-                <p>Proficient in Python, Java, JavaScript, HTML/CSS, and SQL.</p>
+        </div>
+    
+        <!-- Info Cards -->
+        <div class="row text-center g-4">
+          <!-- Education Card -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="info-card education">
+              <div class="card-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h5>Education</h5>
+              <div class="card-content">
+                <div class="education-item">
+                  <p class="institution">Drake University</p>
+                  <p class="major">AI, Computer Science, Data Analytics, & Cybersecurity</p>
+                  <p class="gpa">GPA: 3.92/4.0</p>
+                  <div class="coursework">
+                    <p class="coursework-title">Key Coursework:</p>
+                    <ul>
+                      <li>Machine Learning</li>
+                      <li>Database Management</li>
+                      <li>Software Engineering</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card border-0 shadow">
-              <div class="card-body">
-                <div class="about-icons"><i class="fas fa-futbol"></i></div>
-                <h5>Interests</h5>
-                <p>Big fan of Arsenal FC and passionate about software.</p>
+    
+          <!-- Skills Card -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="info-card skills">
+              <div class="card-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h5>Skills & Achievements</h5>
+              <div class="card-content">
+                <div class="skill-category">
+                  <p class="category-title">Technical</p>
+                  <p>Python, SQL, ML frameworks</p>
+                </div>
+                <div class="skill-category">
+                  <p class="category-title">Academics</p>
+                  <p>3x Dean's List, 2x President's List</p>
+                </div>
+                <div class="skill-category">
+                  <p class="category-title">Leadership</p>
+                  <p>Information Technology Services Lead Student Tech</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Interests Card -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="info-card interests">
+              <div class="card-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h5>Hobbies & Interests</h5>
+              <div class="card-content">
+                <div class="interest-category">
+                  <p class="category-title">Personal Interests</p>
+                  <p>AI Ethics, Cybersecurity Impacts</p>
+                </div>
+                <div class="interest-category">
+                  <p class="category-title">Hobbies</p>
+                  <p>Soccer, Gaming, Programming</p>
+                </div>
+                <div class="interest-category">
+                  <p class="category-title">Fun Fact</p>
+                  <p>I combine my love of programming and gaming to code for Minecraft servers!</p>
+                </div>
               </div>
             </div>
           </div>
@@ -810,7 +1079,7 @@
       </div>
     </section>
 
-    <section class="skills-section" id="skills">
+    <section id="skills" class="skills-section">
       <div class="container py-5">
         <h2 class="text-center mb-5">Technical Skills</h2>
         
@@ -826,17 +1095,17 @@
                 <div class="skill-item mb-3">
                   <span class="badge bg-primary-subtle text-primary mb-2">Advanced</span>
                   <p class="mb-1 fw-bold">Python</p>
-                  <small class="text-muted">NumPy, Pandas, scikit-learn</small>
-                </div>
-                <div class="skill-item mb-3">
-                  <span class="badge bg-primary-subtle text-primary mb-2">Advanced</span>
-                  <p class="mb-1 fw-bold">Java</p>
-                  <small class="text-muted">Spring Boot, JavaFX, JUnit</small>
+                  <small class="text-muted">NumPy, Pandas, SKlearn, PyTorch, TensorFlow</small>
                 </div>
                 <div class="skill-item mb-3">
                   <span class="badge bg-primary-subtle text-primary mb-2">Intermediate</span>
-                  <p class="mb-1 fw-bold">JavaScript</p>
-                  <small class="text-muted">React, Node.js, Express</small>
+                  <p class="mb-1 fw-bold">Java</p>
+                  <small class="text-muted">JavaFX</small>
+                </div>
+                <div class="skill-item mb-3">
+                  <span class="badge bg-primary-subtle text-primary mb-2">Advanced</span>
+                  <p class="mb-1 fw-bold">SQL</p>
+                  <small class="text-muted">Database Creation, Queries, Views</small>
                 </div>
               </div>
             </div>
@@ -853,18 +1122,18 @@
                 <div class="skill-item mb-3">
                   <span class="badge bg-success-subtle text-success mb-2">Advanced</span>
                   <p class="mb-1 fw-bold">Machine Learning</p>
-                  <small class="text-muted">Classification, Regression, Clustering</small>
+                  <small class="text-muted">Classification, Regression</small>
                 </div>
                 <div class="skill-item mb-3">
                   <span class="badge bg-success-subtle text-success mb-2">Intermediate</span>
                   <p class="mb-1 fw-bold">Deep Learning</p>
-                  <small class="text-muted">TensorFlow, PyTorch, Neural Networks</small>
+                  <small class="text-muted">TensorFlow, PyTorch</small>
                 </div>
-                <div class="skill-item mb-3">
+                <!-- <div class="skill-item mb-3">
                   <span class="badge bg-success-subtle text-success mb-2">Intermediate</span>
                   <p class="mb-1 fw-bold">Computer Vision</p>
                   <small class="text-muted">OpenCV, Image Processing</small>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -878,19 +1147,19 @@
               </div>
               <div class="skill-items">
                 <div class="skill-item mb-3">
-                  <span class="badge bg-info-subtle text-info mb-2">Advanced</span>
+                  <span class="badge bg-info-subtle text-info mb-2">Intermediate</span>
                   <p class="mb-1 fw-bold">Frontend</p>
                   <small class="text-muted">HTML5, CSS3, React.js</small>
                 </div>
                 <div class="skill-item mb-3">
                   <span class="badge bg-info-subtle text-info mb-2">Intermediate</span>
                   <p class="mb-1 fw-bold">Backend</p>
-                  <small class="text-muted">Node.js, Express, RESTful APIs</small>
+                  <small class="text-muted">C#, APIs</small>
                 </div>
                 <div class="skill-item mb-3">
-                  <span class="badge bg-info-subtle text-info mb-2">Intermediate</span>
+                  <span class="badge bg-info-subtle text-info mb-2">Advanced</span>
                   <p class="mb-1 fw-bold">Databases</p>
-                  <small class="text-muted">MySQL, MongoDB, PostgreSQL</small>
+                  <small class="text-muted">MySQL</small>
                 </div>
               </div>
             </div>
@@ -907,17 +1176,17 @@
                 <div class="skill-item mb-3">
                   <span class="badge bg-warning-subtle text-warning mb-2">Advanced</span>
                   <p class="mb-1 fw-bold">Version Control</p>
-                  <small class="text-muted">Git, GitHub, GitLab</small>
+                  <small class="text-muted">Git, GitHub</small>
                 </div>
-                <div class="skill-item mb-3">
+                <!-- <div class="skill-item mb-3">
                   <span class="badge bg-warning-subtle text-warning mb-2">Intermediate</span>
                   <p class="mb-1 fw-bold">Cloud Platforms</p>
                   <small class="text-muted">AWS, Google Cloud, Heroku</small>
-                </div>
+                </div> -->
                 <div class="skill-item mb-3">
                   <span class="badge bg-warning-subtle text-warning mb-2">Advanced</span>
                   <p class="mb-1 fw-bold">Development Tools</p>
-                  <small class="text-muted">VSCode, IntelliJ IDEA, Jupyter</small>
+                  <small class="text-muted">VSCode, Visual Studio</small>
                 </div>
               </div>
             </div>
@@ -934,12 +1203,12 @@
                 <div class="skill-item mb-3">
                   <span class="badge bg-danger-subtle text-danger mb-2">Advanced</span>
                   <p class="mb-1 fw-bold">Problem Solving</p>
-                  <small class="text-muted">Analytical Thinking, Debug</small>
+                  <small class="text-muted">Analytical Thinking, Debugging</small>
                 </div>
                 <div class="skill-item mb-3">
                   <span class="badge bg-danger-subtle text-danger mb-2">Advanced</span>
                   <p class="mb-1 fw-bold">Team Collaboration</p>
-                  <small class="text-muted">Agile, Scrum, Leadership</small>
+                  <small class="text-muted">Agile, Leadership</small>
                 </div>
                 <div class="skill-item mb-3">
                   <span class="badge bg-danger-subtle text-danger mb-2">Advanced</span>
@@ -961,17 +1230,17 @@
                 <div class="skill-item mb-3">
                   <span class="badge bg-secondary-subtle text-secondary mb-2">Intermediate</span>
                   <p class="mb-1 fw-bold">Data Visualization</p>
-                  <small class="text-muted">Matplotlib, Seaborn, D3.js</small>
+                  <small class="text-muted">R, Excel</small>
                 </div>
-                <div class="skill-item mb-3">
+                <!-- <div class="skill-item mb-3">
                   <span class="badge bg-secondary-subtle text-secondary mb-2">Intermediate</span>
                   <p class="mb-1 fw-bold">DevOps</p>
                   <small class="text-muted">Docker, CI/CD, Jenkins</small>
-                </div>
+                </div> -->
                 <div class="skill-item mb-3">
-                  <span class="badge bg-secondary-subtle text-secondary mb-2">Intermediate</span>
-                  <p class="mb-1 fw-bold">Testing</p>
-                  <small class="text-muted">Unit Testing, Integration Testing</small>
+                  <span class="badge bg-secondary-subtle text-secondary mb-2">Advanced</span>
+                  <p class="mb-1 fw-bold">Softwares</p>
+                  <small class="text-muted">Excel, Office Suite</small>
                 </div>
               </div>
             </div>
@@ -1191,31 +1460,15 @@
         lastScroll = currentScroll;
       });
 
-      // Enhanced progress bar animation
-      const progressObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const progressBars = entry.target.querySelectorAll('.progress-bar');
-            progressBars.forEach((bar, index) => {
-                setTimeout(() => {
-                    const width = bar.getAttribute('data-width');
-                    bar.style.width = width;
-                }, index * 200); // Staggered animation
-            });
-            progressObserver.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.1
-});
+     
 
-// Observe the skills section
-document.addEventListener('DOMContentLoaded', () => {
-    const skillsSection = document.querySelector('.skills-section');
-    if (skillsSection) {
-        progressObserver.observe(skillsSection);
-    }
-});
+// // Observe the skills section
+// document.addEventListener('DOMContentLoaded', () => {
+//     const skillsSection = document.querySelector('.skills-section');
+//     if (skillsSection) {
+//         progressObserver.observe(skillsSection);
+//     }
+// });
 
 // Carousel 3D
 
@@ -1373,6 +1626,58 @@ document.getElementById("contact-form").addEventListener("submit", function (eve
             form.reset();
           }
         }).catch(error => console.error("Form submission error: ", error));
+      });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // Get all sections that have corresponding nav items
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar.offsetHeight;
+        
+        // Scroll spy function with improved threshold handling
+        function scrollSpy() {
+          const scrollPosition = window.scrollY + navbarHeight + 50;
+          let activeSection = null;
+
+          sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top + window.scrollY - navbarHeight - 50;
+            const sectionBottom = sectionTop + Math.max(section.offsetHeight, window.innerHeight / 3);
+            
+            const sectionId = section.getAttribute('id');
+            const correspondingNavLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+              activeSection = correspondingNavLink;
+            }
+          });
+
+          // Update active link
+          navLinks.forEach(link => link.classList.remove('active'));
+          if (activeSection) {
+            activeSection.classList.add('active');
+          }
+        }
+        
+        // Add scroll event listener with debounce for performance
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+          if (scrollTimeout) {
+            window.cancelAnimationFrame(scrollTimeout);
+          }
+          
+          scrollTimeout = window.requestAnimationFrame(function() {
+            scrollSpy();
+          });
+        });
+        
+        // Run on initial load
+        scrollSpy();
+        
+        // Update on window resize
+        window.addEventListener('resize', function() {
+          scrollSpy();
+        });
       });
 
     </script>
