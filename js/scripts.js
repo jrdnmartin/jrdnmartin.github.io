@@ -80,16 +80,6 @@ AOS.init({
         lastScroll = currentScroll;
       });
 
-     
-
-// // Observe the skills section
-// document.addEventListener('DOMContentLoaded', () => {
-//     const skillsSection = document.querySelector('.skills-section');
-//     if (skillsSection) {
-//         progressObserver.observe(skillsSection);
-//     }
-// });
-
 // Carousel 3D
 
 document.addEventListener('DOMContentLoaded', function() {
