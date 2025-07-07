@@ -319,6 +319,16 @@ nav {
     margin-top: 3rem;
 }
 
+.pricing-starting {
+  font-size: 0.85rem;
+  color: var(--text-medium);
+  opacity: 0.8;
+  margin: 0.5rem 0 0.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .pricing-card {
     background: var(--bg-primary);
     border-radius: 1.5rem;
