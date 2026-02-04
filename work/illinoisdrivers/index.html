@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap + Icons (match your main site) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Your existing stylesheet -->
+    <link href="/css/styles.css" rel="stylesheet" />
+
+    <title>IllinoisDrivers — Case Study | Jordan Martin</title>
+  </head>
+
+  <body>
+    <!-- Simple top nav (lightweight, consistent) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+      <div class="container">
+        <a class="navbar-brand" href="/">Jordan Martin</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/#work">Selected Work</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="case-page">
+      <!-- Hero -->
+      <header class="case-hero">
+        <div class="container">
+          <div class="case-breadcrumb">
+            <a href="/#work"><i class="fas fa-arrow-left me-2"></i>Back to Selected Work</a>
+          </div>
+
+          <div class="case-hero-inner">
+            <div class="case-hero-copy">
+              <p class="case-eyebrow">Freelance · Production</p>
+              <h1 class="case-title">IllinoisDrivers</h1>
+              <p class="case-subtitle">
+                Insurance Quoting & Automation Platform — dynamic quote flows, API-driven pricing, and CMS-managed content.
+              </p>
+
+              <div class="case-chips">
+                <span class="case-chip"><i class="fas fa-handshake me-2"></i>Client Work</span>
+                <span class="case-chip"><i class="fas fa-globe me-2"></i>Production</span>
+                <span class="case-chip"><i class="fas fa-code me-2"></i>APIs + Forms</span>
+              </div>
+
+              <div class="case-hero-actions">
+                <!-- Optional: if you have a public site link later -->
+                <!-- <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer">View Live</a> -->
+                <a class="btn btn-outline-secondary" href="/#contact">Work With Me</a>
+              </div>
+            </div>
+
+            <!-- Visual placeholder (swap for screenshots later) -->
+            <div class="case-hero-visual" aria-hidden="true">
+              <div class="case-visual-card">
+                <div class="case-visual-header">
+                  <span class="case-dot"></span><span class="case-dot"></span><span class="case-dot"></span>
+                </div>
+                <div class="case-visual-body">
+                  <div class="case-visual-line w-75"></div>
+                  <div class="case-visual-line w-50"></div>
+                  <div class="case-visual-line w-90"></div>
+                  <div class="case-visual-line w-60"></div>
+                </div>
+                <div class="case-visual-footer">
+                  <span class="badge text-bg-secondary">WordPress</span>
+                  <span class="badge text-bg-secondary">TurboRater API</span>
+                  <span class="badge text-bg-secondary">Logging</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <section class="case-section">
+        <div class="container">
+          <div class="case-grid">
+
+            <!-- At a glance -->
+            <aside class="case-aside">
+              <div class="case-panel">
+                <h2 class="case-h2">At a glance</h2>
+                <ul class="case-list">
+                  <li><strong>Role:</strong> Freelance Developer (Full-stack delivery)</li>
+                  <li><strong>Focus:</strong> Quote flow UX, API integration, reliability, logging</li>
+                  <li><strong>Stack:</strong> WordPress, PHP/JS, Gravity Forms, external rating APIs</li>
+                  <li><strong>Status:</strong> Live / iterating</li>
+                  <li><strong>Notes:</strong> Some implementation details omitted for client privacy</li>
+                </ul>
+              </div>
+
+              <div class="case-panel mt-3">
+                <h3 class="case-h3">Key areas</h3>
+                <div class="case-pill-row">
+                  <span class="case-pill">Integration</span>
+                  <span class="case-pill">Automation</span>
+                  <span class="case-pill">Observability</span>
+                  <span class="case-pill">UX polish</span>
+                  <span class="case-pill">SEO basics</span>
+                </div>
+              </div>
+            </aside>
+
+            <!-- Narrative -->
+            <article class="case-main">
+              <div class="case-block">
+                <h2 class="case-h2">Problem</h2>
+                <p class="case-p">
+                  The client needed a production insurance quoting experience that felt simple for users, while still
+                  collecting enough structured information to support accurate rating and downstream workflows.
+                </p>
+                <p class="case-p">
+                  The challenge was balancing speed and clarity (for users) with correctness, edge cases, and integration reliability.
+                </p>
+              </div>
+
+              <div class="case-block">
+                <h2 class="case-h2">Solution</h2>
+                <p class="case-p">
+                  I implemented a dynamic quote flow that feeds a structured payload into an external rating service,
+                  then presents returned quotes in a clean UI. The build emphasizes validation, fallback defaults,
+                  and production-ready logging to make issues diagnosable.
+                </p>
+              </div>
+
+              <div class="case-block">
+                <h2 class="case-h2">What I built</h2>
+                <ul class="case-bullets">
+                  <li>Form-driven quote flow with conditional logic and data normalization</li>
+                  <li>API integration layer to build/submit payloads and parse carrier responses</li>
+                  <li>Logging + debug trail designed for fast support & troubleshooting</li>
+                  <li>Error alerting patterns (production-safe, avoids noise)</li>
+                  <li>Operational improvements: DNS/SSL coordination, staging → production fixes (where applicable)</li>
+                </ul>
+              </div>
+
+              <div class="case-block">
+                <h2 class="case-h2">Architecture (high-level)</h2>
+                <div class="case-arch">
+                  <div class="case-arch-row">
+                    <div class="case-arch-node">User</div>
+                    <div class="case-arch-arrow">→</div>
+                    <div class="case-arch-node">WordPress + Form UI</div>
+                    <div class="case-arch-arrow">→</div>
+                    <div class="case-arch-node">Payload Builder</div>
+                    <div class="case-arch-arrow">→</div>
+                    <div class="case-arch-node">Rating API</div>
+                    <div class="case-arch-arrow">→</div>
+                    <div class="case-arch-node">Quotes UI</div>
+                  </div>
+                  <p class="case-note">
+                    (Implementation details are simplified and exclude client-specific identifiers.)
+                  </p>
+                </div>
+              </div>
+
+              <div class="case-block">
+                <h2 class="case-h2">Outcome</h2>
+                <ul class="case-bullets">
+                  <li>Shipped a working production quote flow with iterative improvements</li>
+                  <li>Improved reliability via better defaults, validation, and clearer error surfaces</li>
+                  <li>Made debugging faster with structured logging and traceable context</li>
+                </ul>
+                <!-- <p class="case-note">
+                  If you want, we can later add non-sensitive “before/after” details, screenshots, or performance metrics.
+                </p> -->
+              </div>
+
+              <div class="case-block">
+                <h2 class="case-h2">Lessons learned</h2>
+                <ul class="case-bullets">
+                  <li>“Observability first” prevents long debugging sessions later</li>
+                  <li>API integrations benefit from defaults that preserve compatibility across carriers</li>
+                  <li>UX wins come from reducing ambiguity more than adding features</li>
+                </ul>
+              </div>
+
+              <div class="case-divider"></div>
+
+              <div class="case-next">
+                <p class="case-note mb-2">Next up:</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-outline-secondary btn-sm" href="/work/restaurant-vision/">Restaurant Vision</a>
+                  <a class="btn btn-outline-secondary btn-sm" href="/work/archeway/">Archeway</a>
+                  <a class="btn btn-primary btn-sm" href="/#contact">Contact</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <footer class="text-center">
+        <div class="container">
+          <div class="social-icons mb-3">
+            <a href="https://github.com/jrdnmartin" target="_blank" rel="noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jrdnmartin" target="_blank" rel="noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <p>&copy; 2025 Jordan Martin. All rights reserved.</p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

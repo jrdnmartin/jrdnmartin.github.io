@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap + Icons (match your main site) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Your existing stylesheet -->
+    <link href="/css/styles.css" rel="stylesheet" />
+
+    <title>Archeway — Case Study | Jordan Martin</title>
+  </head>
+
+  <body>
+    <!-- Simple top nav (consistent template) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+      <div class="container">
+        <a class="navbar-brand" href="/">Jordan Martin</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/#projects">Selected Work</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="case-page">
+      <!-- Hero -->
+      <header class="case-hero">
+        <div class="container">
+          <div class="case-breadcrumb">
+            <a href="/#projects"><i class="fas fa-arrow-left me-2"></i>Back to Selected Work</a>
+          </div>
+
+          <div class="case-hero-inner">
+            <div class="case-hero-copy">
+              <p class="case-eyebrow">Full-Stack · Product Build</p>
+              <h1 class="case-title">Archeway</h1>
+              <p class="case-subtitle">
+                A job application tracking platform designed to reduce chaos during job searching — combining Kanban-style
+                workflows, deadlines, and progress insights.
+              </p>
+
+              <div class="case-chips">
+                <span class="case-chip"><i class="fas fa-layer-group me-2"></i>Full-Stack</span>
+                <span class="case-chip"><i class="fas fa-columns me-2"></i>Kanban Workflow</span>
+                <span class="case-chip"><i class="fas fa-chart-line me-2"></i>Analytics</span>
+              </div>
+
+              <div class="case-hero-actions">
+                <!-- Optional when you have a public URL -->
+                <!-- <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer">View Live</a> -->
+                <a class="btn btn-outline-secondary" href="/#contact">Work With Me</a>
+              </div>
+            </div>
+
+            <!-- Visual placeholder (swap for product screenshots later) -->
+            <div class="case-hero-visual" aria-hidden="true">
+              <div class="case-visual-card">
+                <div class="case-visual-header">
+                  <span class="case-dot"></span><span class="case-dot"></span><span class="case-dot"></span>
+                </div>
+                <div class="case-visual-body">
+                  <div class="case-visual-line w-90"></div>
+                  <div class="case-visual-line w-60"></div>
+                  <div class="case-visual-line w-75"></div>
+                  <div class="case-visual-line w-50"></div>
+                </div>
+                <div class="case-visual-footer">
+                  <span class="badge text-bg-secondary">React</span>
+                  <span class="badge text-bg-secondary">Flask</span>
+                  <span class="badge text-bg-secondary">PostgreSQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <section class="case-section">
+        <div class="container">
+          <div class="case-grid">
+            <!-- At a glance -->
+            <aside class="case-aside">
+              <div class="case-panel">
+                <h2 class="case-h2">At a glance</h2>
+                <ul class="case-list">
+                  <li><strong>Role:</strong> Product design + full-stack engineering</li>
+                  <li><strong>Users:</strong> Students / early-career applicants (starting with personal use)</li>
+                  <li><strong>Core stack:</strong> React, Flask, PostgreSQL</li>
+                  <li><strong>Focus:</strong> Speed, clarity, organization, progress tracking</li>
+                  <li><strong>Status:</strong> In progress / iterating</li>
+                </ul>
+              </div>
+
+              <div class="case-panel mt-3">
+                <h3 class="case-h3">Key areas</h3>
+                <div class="case-pill-row">
+                  <span class="case-pill">Product UX</span>
+                  <span class="case-pill">Data model</span>
+                  <span class="case-pill">Auth</span>
+                  <span class="case-pill">Analytics</span>
+                  <span class="case-pill">Reliability</span>
+                </div>
+              </div>
+            </aside>
+
+            <!-- Narrative -->
+            <article class="case-main">
+              <div class="case-block">
+                <h2 class="case-h2">Problem</h2>
+                <p class="case-p">
+                  Job searching can quickly become messy: scattered notes, forgotten follow-ups, unclear priorities, and
+                  little visibility into what’s working. Most people end up tracking applications in fragile spreadsheets
+                  or not at all.
+                </p>
+                <p class="case-p">
+                  Archeway is designed to make job searching feel manageable by giving users a single, structured workflow
+                  for applications, deadlines, and progress.
+                </p>
+              </div>
+
+              <div class="case-block">
+                <h2 class="case-h2">Solution</h2>
+                <p class="case-p">
+                  I’m building a full-stack web platform centered on a Kanban-style pipeline (Applied → Interviewing → Offer, etc.)
+                  that supports notes, deadlines, and lightweight analytics so users can stay organized and iterate their approach.
+                </p>
+              </div>
+
+              <div class="case-block">
+                <h2 class="case-h2">What I built (so far)</h2>
+                <ul class="case-bullets">
+                  <li>Kanban workflow for applications with status transitions</li>
+                  <li>Structured application model (company, role, links, notes, dates, outcome)</li>
+                  <li>Deadline / follow-up tracking to prevent missed opportunities</li>
+                  <li>Foundation for analytics (counts by stage, time-in-stage, response rates)</li>
+                  <li>Scaffolded backend routes and database planning for long-term scalability</li>
+                </ul>
+              </div>
+
+              <div class="case-block">
+                <h2 class="case-h2">Architecture (high-level)</h2>
+                <div class="case-arch">
+                  <div class="case-arch-row">
+                    <div class="case-arch-node">React UI</div>
+                    <div class="case-arch-arrow">→</div>
+                    <div class="case-arch-node">Flask API</div>
+                    <div class="case-arch-arrow">→</div>
+                    <div class="case-arch-node">PostgreSQL</div>
+                    <div class="case-arch-arrow">→</div>
+                    <div class="case-arch-node">Analytics Layer</div>
+                  </div>
+                  <p class="case-note">
+                    The system is designed to keep the UI fast while keeping data validation and business rules in the backend.
+                  </p>
+                </div>
+              </div>
+
+              <div class="case-block">
+                <h2 class="case-h2">Outcome</h2>
+                <ul class="case-bullets">
+                  <li>Clear single workflow for managing applications and follow-ups</li>
+                  <li>Reduced “mental load” by capturing status + next action in one place</li>
+                  <li>Built a foundation for meaningful analytics and improvement over time</li>
+                </ul>
+                <p class="case-note">
+                  As the product matures, I’ll add screenshots, sample analytics, and a public live demo if appropriate.
+                </p>
+              </div>
+
+              <div class="case-block">
+                <h2 class="case-h2">Roadmap</h2>
+                <ul class="case-bullets">
+                  <li>User authentication + multi-device persistence</li>
+                  <li>Calendar integration / reminders for follow-ups</li>
+                  <li>Analytics dashboard (conversion rates, time-to-response, stage bottlenecks)</li>
+                  <li>Import/export from spreadsheets</li>
+                </ul>
+              </div>
+
+              <div class="case-block">
+                <h2 class="case-h2">Lessons learned</h2>
+                <ul class="case-bullets">
+                  <li>Strong data modeling early makes UX features easier later</li>
+                  <li>Simple UX beats feature overload for productivity tools</li>
+                  <li>Progress metrics are only useful when the workflow is consistent</li>
+                </ul>
+              </div>
+
+              <div class="case-divider"></div>
+
+              <div class="case-next">
+                <p class="case-note mb-2">Next up:</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-outline-secondary btn-sm" href="/work/illinoisdrivers/">IllinoisDrivers</a>
+                  <a class="btn btn-outline-secondary btn-sm" href="/work/restaurant-vision/">Restaurant Vision</a>
+                  <a class="btn btn-primary btn-sm" href="/#contact">Contact</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <footer class="text-center">
+        <div class="container">
+          <div class="social-icons mb-3">
+            <a href="https://github.com/jrdnmartin" target="_blank" rel="noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jrdnmartin" target="_blank" rel="noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <p>&copy; 2025 Jordan Martin. All rights reserved.</p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
