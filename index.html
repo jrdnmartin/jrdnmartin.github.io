@@ -563,30 +563,28 @@
           A couple of details helps me respond faster.
         </p>
 
-        <!-- Keep your existing form action/handler if you have one -->
-        <form>
+        <form action="https://formspree.io/f/mkgobpnr" method="POST">
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label">Name</label>
-              <input type="text" class="form-control" placeholder="Your name" />
+              <input type="text" name="name" class="form-control" placeholder="Your name" required />
             </div>
             <div class="col-md-6">
               <label class="form-label">Email</label>
-              <input type="email" class="form-control" placeholder="you@email.com" />
+              <input type="email" name="email" class="form-control" placeholder="you@email.com" required />
             </div>
             <div class="col-12">
               <label class="form-label">What are you working on?</label>
-              <input type="text" class="form-control" placeholder="Short summary (project / role / idea)" />
+              <input type="text" name="topic" class="form-control" placeholder="Short summary (project / role / idea)" />
             </div>
             <div class="col-12">
               <label class="form-label">Message</label>
-              <textarea class="form-control" rows="5" placeholder="Timeline, scope, or anything helpful…"></textarea>
+              <textarea name="message" class="form-control" rows="5" placeholder="Timeline, scope, or anything helpful…" required></textarea>
             </div>
+            <input type="hidden" name="_subject" value="New portfolio inquiry" />
             <div class="col-12 d-flex flex-wrap gap-2 align-items-center mt-2">
               <button type="submit" class="btn btn-primary btn-glow">Send</button>
-              <span class="contact-privacy text-muted small">
-                No spam — just a direct reply.
-              </span>
+              <span class="contact-privacy text-muted small">No spam — just a direct reply.</span>
             </div>
           </div>
         </form>
