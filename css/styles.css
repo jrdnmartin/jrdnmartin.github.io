@@ -5,12 +5,6 @@
 html {
   scroll-behavior: smooth;
 }
-
-body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-}
-
 /* ============================================
    HERO (Concise + Professional + Subtle Visuals)
    - Removes old typewriter / shapes / highlight-box / mouse scroll UI
@@ -282,17 +276,6 @@ body {
 .btn-glow:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 30px rgba(0, 123, 255, 0.6);
-}
-
-.btn-outline-light {
-  border: 2px solid white;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-.btn-outline-light:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
 }
 
 /* ============================================
@@ -1979,4 +1962,473 @@ footer .social-icons {
   .case-hero-inner{ grid-template-columns: 1fr; }
   .case-hero-visual{ justify-content: flex-start; }
   .case-grid{ grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   CLEAN THEME OVERRIDES + LIGHT/DARK MODE
+   (Keeps hero + work visuals intact)
+   ============================================ */
+
+:root {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef2f7;
+  --text: #0b1220;
+  --muted: #475569;
+  --border: #e2e8f0;
+  --accent: #2b4c7e;
+  --accent-strong: #1f3b64;
+  --accent-soft: #e3ebf6;
+  --accent-warm: #c2410c;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.10);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --nav-border: rgba(15, 23, 42, 0.08);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b0f14;
+  --surface: #111827;
+  --surface-2: #0f172a;
+  --text: #e5e7eb;
+  --muted: #cbd5e1;
+  --border: #1f2937;
+  --accent: #8bb4ff;
+  --accent-strong: #5b91f5;
+  --accent-soft: rgba(59, 130, 246, 0.18);
+  --accent-warm: #f59e0b;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 14px 34px rgba(0, 0, 0, 0.35);
+  --nav-bg: rgba(11, 15, 20, 0.85);
+  --nav-border: rgba(148, 163, 184, 0.12);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Instrument Sans", "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Source Serif 4", "Iowan Old Style", "Times New Roman", serif;
+  letter-spacing: 0.005em;
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: var(--accent-strong);
+}
+
+.text-muted {
+  color: var(--muted) !important;
+}
+
+/* Section dividers */
+.section-divider {
+  position: relative;
+}
+
+.section-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(86%, 980px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+
+/* Navbar cleanup */
+.navbar {
+  background: var(--nav-bg) !important;
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: none;
+}
+
+.navbar.scrolled {
+  background: var(--nav-bg) !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-brand {
+  background: none;
+  -webkit-text-fill-color: unset;
+  color: var(--text) !important;
+}
+
+.navbar-brand::after {
+  background: var(--accent);
+}
+
+.navbar-nav .nav-link {
+  color: var(--muted) !important;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 0.9rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--text) !important;
+}
+
+/* Theme toggle */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--surface-2);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.theme-toggle .theme-icon {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 991px) {
+  .navbar-actions {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Buttons (global, minimal) */
+.btn {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.btn-primary {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-outline-light {
+  color: var(--text);
+  border-color: var(--border);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.btn-outline-light:hover {
+  color: var(--text);
+  background: var(--surface-2);
+  border-color: var(--accent);
+}
+
+.btn-outline-light:focus {
+  color: var(--text);
+  background: var(--surface-2);
+  border-color: var(--accent);
+}
+
+.btn-outline-secondary {
+  color: var(--text);
+  border-color: var(--border);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+  color: var(--text);
+  background: var(--surface-2);
+  border-color: var(--accent);
+}
+
+.case-next .btn-outline-secondary {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+.case-next .btn-outline-secondary:hover,
+.case-next .btn-outline-secondary:focus {
+  border-color: var(--accent);
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.case-next .btn-primary {
+  box-shadow: var(--shadow-sm);
+}
+
+/* Preserve hero CTA styling */
+.hero.hero-v2 .btn-primary,
+.hero.hero-v2 .btn-glow {
+  background: linear-gradient(45deg, #007bff, #00bfff);
+  border: none;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+}
+
+.hero.hero-v2 .btn-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 123, 255, 0.6);
+}
+
+.hero.hero-v2 .btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Section backgrounds */
+.about,
+.skills-section,
+.work-section,
+.contact-v2 {
+  background: var(--bg) !important;
+}
+
+.about::before,
+.about::after {
+  content: none;
+}
+
+.heading-underline {
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+}
+
+/* Card surfaces */
+.about-card,
+.proof-tile,
+.skills-highlight,
+.skills-card,
+.work-row,
+.contact-card {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow-md);
+}
+
+.skills-highlight::before,
+.skills-card::before,
+.proof-tile::before,
+.work-item::before,
+.work-row::before,
+.contact-card::before {
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  opacity: 0.9;
+}
+
+.skills-highlight-icon {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.25);
+}
+
+.proof-icon {
+  background: none;
+  -webkit-text-fill-color: unset;
+  color: var(--accent);
+}
+
+.about-title,
+.skills-highlight-title,
+.skills-card-top h4,
+.work-title,
+.contact-title,
+.contact-form-title,
+.proof-tile h4 {
+  color: var(--text);
+}
+
+.about-text,
+.skills-highlight-text,
+.skills-bullets,
+.work-desc,
+.contact-text,
+.proof-tile p {
+  color: var(--muted);
+}
+
+.proof-tags span,
+.work-tag,
+.case-chip,
+.case-pill,
+.skills-badges .badge {
+  background: var(--accent-soft) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+.work-kicker,
+.case-eyebrow,
+.about-eyebrow,
+.contact-eyebrow {
+  color: var(--accent) !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.case-breadcrumb a {
+  color: var(--muted);
+}
+
+.case-breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.work-link {
+  color: var(--accent);
+  border-bottom-color: rgba(37, 99, 235, 0.3);
+}
+
+.work-link:hover {
+  border-bottom-color: var(--accent);
+}
+
+.contact-method {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+.contact-method-label {
+  color: var(--text);
+}
+
+.contact-method-value,
+.contact-mini-item {
+  color: var(--muted);
+}
+
+.contact-card--form .form-control {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.contact-card--form .form-control::placeholder {
+  color: var(--muted);
+}
+
+/* Case study pages (dark mode support + contrast fixes) */
+.case-hero {
+  background:
+    radial-gradient(900px 320px at 20% 0%, var(--accent-soft), transparent 60%),
+    radial-gradient(900px 320px at 80% 0%, rgba(194, 65, 12, 0.12), transparent 65%),
+    linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 65%);
+  border-bottom: 1px solid var(--border);
+}
+
+.case-breadcrumb a {
+  color: var(--muted);
+}
+
+.case-breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.case-title,
+.case-h2,
+.case-h3 {
+  color: var(--text);
+}
+
+.case-subtitle,
+.case-list,
+.case-p,
+.case-bullets,
+.case-note {
+  color: var(--muted);
+}
+
+.case-chip,
+.case-pill {
+  background: var(--accent-soft);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.case-visual-card,
+.case-panel,
+.case-main {
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+.case-visual-header {
+  background: linear-gradient(90deg, var(--accent-soft), rgba(194, 65, 12, 0.10));
+  border-bottom-color: var(--border);
+}
+
+.case-dot {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+.case-visual-line {
+  background: rgba(148, 163, 184, 0.25);
+}
+
+.case-arch {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+
+.case-arch-node {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.case-arch-arrow {
+  color: var(--muted);
+}
+
+.case-divider {
+  background: var(--border);
+}
+
+/* Footer cleanup */
+footer {
+  background: var(--surface);
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+footer a {
+  color: var(--muted);
+}
+
+footer a:hover {
+  color: var(--accent);
 }
